@@ -1,8 +1,8 @@
 import { Kafka } from 'kafkajs';
-
+ 
 const kafka = new Kafka({
-    clientId: 'my-app',
-    brokers: ['localhost:9092']
+  clientId: 'my-app',
+  brokers: [`localhost:9092`],
 });
 
 const producer = kafka.producer();
@@ -18,3 +18,4 @@ await producer.send({
 }); 
 
 await producer.disconnect();
+console.log(`message produced`);
