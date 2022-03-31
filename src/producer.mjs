@@ -7,18 +7,18 @@ const kafka = new Kafka({
 
 const producer = kafka.producer();
 await producer.connect();
-await producer.sendBatch({
+await producer.send({
   topic: 'test-topic',
-  messages: createMessage(),
+  messages: createMessages(),
 });
 
-function createMessage() {
+function createMessages() {
   const messages = [];
   for (let key = 0; key < 100; key++) {
-    const message = `Hello KafkaJS user! ${key}`;
+    const value = `Rupesh Learning Kafka ${key}`;
     messages.push({
-      key,
-      message,
+      key: key.toString(),
+      value,
     });
   }
 
